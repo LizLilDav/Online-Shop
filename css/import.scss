@@ -1,0 +1,43 @@
+$colorBrown:#573c27;
+$colorRed:#e05b5b;
+$colorHeadBack:#f6eddc;
+$colorGreen:#90b577;
+$colorBack:#fdfdfd;
+$colorWhite:#ffffff;
+$fontSize:14px;
+$heightHead: 42px;
+$withGlobal:1200px;
+$withContent:800px;
+@mixin content{
+  margin: 0 auto;
+}
+
+@mixin list{
+  list-style: none;
+}
+@mixin link($padding:13px 10px){
+  float: left;
+  padding:$padding;
+}
+@mixin href($color:$colorWhite,$size:($fontSize)-5px){
+  text-decoration: none;
+  color:$color;
+  font-size:$size ;
+  &:hover{
+    text-decoration:underline;
+    color:$colorHeadBack ;
+  }
+}
+@mixin blockItems($float:left,$blockWidth:272px,$blockHeight:342px,$color:$colorWhite){
+  float: $float;
+  width:$blockWidth;
+  height:$blockHeight;
+  background: $color;
+  margin-left:34px;
+}
+@mixin button($buttonWith:15%,$buttonHeight:40px,$background:$colorRed,$color:$colorWhite){
+  width:$buttonWith;
+  height:$buttonHeight;
+  background: $colorRed;
+  color:$color;
+}
