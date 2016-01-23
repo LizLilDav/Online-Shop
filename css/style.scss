@@ -9,12 +9,11 @@
   clear: both;
 }
 .container{
-  background:#fcfcfc;
-  width: $withGlobal;
-  @include content;
+  @include content(withGlobal);
 }
 .header{
-  width: 100%;
+  @include content($withGlobal);
+  background: darken($colorBack,1%);
 }
 .header__head{
   width: 100%;
@@ -22,7 +21,6 @@
   height: $heightHead;
 }
 .head__head-content {
-  width: $withContent;
   @include content;
 }
 .head__head-left{
@@ -51,25 +49,40 @@
 .head-right__href{
   @include href;
 }
-.header-content__about{
-background: darken($colorBack,1%);
-}
 .header__about{
   width: 100%;
-  padding: 15px 0 30px 0;
+  background: $colorBack;
+border-bottom: 3px solid $colorRed;
+}
+.about__content-about{
+background: darken($colorBack,1%);
+  padding: 15px 0 10px 5px;
+  @include content;
 }
 .about__logo{
   float: left;
-  width: 25%;
+  width: 24%;
 }
 .logo__href{
   text-decoration: none;
+  &:hover{
+   color:$colorRed;
+  }
+}
+.logo__head{display: inline-block;
+}
+.logo__href_red{
+  text-decoration: none;
+  &:hover{
+    color: $colorGreen;
+  }
 }
 .logo__txt{
 font-size:$fontSize*3-5;
 }
 .logo__txt_green{
   color:$colorGreen;
+
 }
 .logo__txt_red{
   color:$colorRed;
@@ -83,7 +96,7 @@ font-size:$fontSize*3-5;
 }
 .about__hour{
   float: left;
-  width: 25%;
+  width: 24%;
   margin-top: 7px;
 }
 .hour__clock{
@@ -95,10 +108,10 @@ font-size:$fontSize*3-5;
 }
 .about__goods{
   float: left;
-  width: 37%;
+  width: 36%;
 }
 .goods__search-txt{
-  width: 83%;
+  width: 81%;
   height: 40px;
   border: 1px solid $colorRed;
 }
@@ -127,10 +140,499 @@ font-size:$fontSize*3-5;
 }
 .shopping__amount{
   @include button(20px,20px,#ed1c24,$colorWhite);
-  padding: 3px 5px;
+  padding: 2px 5px;
   box-shadow: (0 0 4px #7a7b97);
 position: relative;
-  right:-62px;
+  right:70px;
   top:-20px;
+}
+.content-about__nav{
+ padding:50px 0 10px 0;
+}
+.nav__list{
+  @include list;
+}
+.list__link{
+  @include link(0 0);
+}
+.link__href{
+@include href(darken($colorBrown,5%),($fontSize)-2,$colorWhite,$colorRed);
+  font-weight: bold;
+  padding: 5px 6px 6px 6px ;
+}
+.link__href_active{
+  background: $colorRed;
+  color: $colorWhite;
+}
+.advertise{
+  @include content($withGlobal);
+  background: darken($colorBack,1%);
 
 }
+.advertise__off{
+  height: 250px;
+  @include content;
+  background: $colorHeadBack;
+}
+.off__new-off{
+  width: 44%;
+ padding:25px 30px 40px 40px ;
+  float: left;
+}
+.new-off__head{
+  color:lighten($colorBrown,10%);
+  font-size: $fontSize+5;
+  margin-bottom: 25px;
+}
+.new-off__percent{
+  font-size: $fontSize+20;
+  background:lighten($colorHeadBack, 5%);
+  color:darken($colorBrown,10%);
+  padding: 5px  5px 5px 3px;
+  font-weight: bold;
+  }
+.percent__sub{
+margin-left: 10px;
+}
+.new-off__txt{
+  padding: 25px 0 25px;
+  color: lighten($colorBrown,10%);
+  font-size:($fontSize)-2;
+}
+.new-off__more{
+@include button(70px,28px,$colorRed,$colorWhite,$colorGreen);
+}
+.off__sale{
+  width: 340px;
+ height:69% ;
+  box-shadow: 0 4px 3px #ded9d5;
+  padding: 40px 0 40px 20px;
+  float:left;
+  position: relative;
+  border-top-left-radius: 100px;
+  border-top-right-radius: 100px;
+  border-bottom-right-radius: 100px;
+  border-bottom-left-radius: 100px;
+  background: #FDEDDD;
+
+}
+.sale__big-sale{
+  margin-top: 30px;
+  width: 53%;
+  float: left;
+}
+.big-sale__view{
+  @include  button(70%,30px,$colorBrown,$colorWhite,$colorRed);
+  font-size:($fontSize)-3;
+  float: left;
+  margin-top: 15px;
+}
+.big-sale__img{
+  float: left;
+  margin-top: 20px;
+}
+.big-sale__head{
+  font-size: ($fontSize)*2.1;
+  color:#796759;
+}
+.big-sale__num{
+  float:left;
+  font-size: ($fontSize)*2;
+  font-weight: bold;
+  color: lighten($colorBrown,15%);
+}
+.big-sale__txt{
+  float:left;
+}
+.txt__off{
+  font-size: ($fontSize)-4;
+  display: block;
+  color: lighten($colorBrown,15%);
+}
+.txt__off_bold{
+  font-weight: bold;
+  color: lighten($colorBrown,15%);
+  font-size: $fontSize;
+}
+.advertise-slider__sign{
+  @include slider;
+  margin-left: 20px;
+  font-size: ($fontSize)*3;
+}
+.advertise{
+  width: $withGlobal;
+}
+.advertise__off{
+  @include content;
+}
+.advertise__shopping{
+ @include content;
+  background: darken($colorBack,2%);
+  margin-top:10px;
+}
+.shopping__details{
+  @include button(22%,80px,$colorRed,$colorWhite);
+  float: left;
+  margin-left: 20px;
+  margin-top: 5px;
+}
+.details__sign{
+  font-size: ($fontSize)+15;
+  margin: 0 10px 0 20px;
+  float:left;
+  line-height: 80px;
+}
+.details__txt{
+  margin-left: 10px;
+  padding-top: 28px;
+  font-size:($fontSize)-3;
+}
+.shopping__details_blue{
+background:#0dc9f7;
+}
+.shopping__details_brown{
+  background:#d9b69b;
+}
+.shopping__details_grey{
+  background:#818181;
+}
+.advertise__store{
+  text-align: center;
+}
+.store__head{
+  font-size: ($fontSize)+15px;
+  color:lighten($colorBrown,4%);
+  padding:20px 0 10px 0;
+}
+.store__txt{
+color: lighten($colorBrown,10%);
+  font-size: ($fontSize)-2;
+  padding-bottom: 20px;
+}
+.sellers-content{
+@include content($withGlobal);
+  height: 420px;
+  padding-bottom: 60px;
+  border-bottom: solid 1px #dcd5c6;
+  background: darken($colorBack,1%);
+ }
+.sellers-content__sellers{
+  @include content;
+  padding-top: 25px;
+  border-top: 2px dotted #dddddd;
+}
+.sellers__head{
+ @include head;
+}
+.head__star{
+  margin: 0 15px 0 10px;
+}
+.sellers__block{
+  width: 100%;
+}
+.block__goods{
+ @include blockItems;
+  border: 1px solid #cac0ae;
+}
+.goods__figure{
+  text-align: center;
+  background: $colorWhite;
+}
+.figure__describe{
+  margin-top:15px;
+  text-align: center;
+}
+.figure__heart{
+  position: relative;
+  top:-64px;
+  left:-83px;
+}
+.describe__txt{
+  display:block;
+  color: lighten($colorBrown,3%);
+  font-weight: bold;
+}
+.describe__price{
+  color: #0dc9f7;
+}
+.goods__add{
+@include button(85px,25px,$colorGreen,$colorWhite);
+  float: left;
+}
+.add__txt{
+  font-size: ($fontSize)-5;
+  line-height: 25px;
+  text-shadow: 1px 1px 1px #5e625b;
+}
+.add__sign{
+  font-size: ($fontSize)-1;
+  margin: 0 2px 0 10px;
+}
+.add__sign_bold{
+  font-weight:bold ;
+  font-size: $fontSize;
+}
+.goods__more{
+  @include button(80px,25px,$colorRed,$colorWhite,$colorGreen);
+  float: right;
+}
+.promotion-content{
+  @include content($withGlobal);
+  background: $colorWhite;
+  border-bottom: 5px solid #e8e3da;
+}
+.promotion-content__promotion{
+  @include content;
+  text-align: center;
+
+}
+.header-prom__head{
+  display: inline-block;
+  font-size: ($fontSize)+5;
+  color:$colorBrown;
+  text-align: center;
+  padding: 30px 0;
+}
+.block-prom__slider{
+  width: 5%;
+  float: left;
+  font-size: 50px;
+}
+.slider__sign{
+  @include slider(darken($colorBrown,10%));
+}
+.block-prom__slider_right{
+  float: right;
+}
+.block-prom__thing {
+  @include blockItems(left, 130px, 233px, $colorHeadBack);
+  border: 1px solid #cac0ae;
+}
+.thing__fig{
+  margin-bottom: 20px;
+}
+.describe__txt_size{
+  color: lighten($colorBrown,3%);
+  font-weight: bold;
+  font-size: ($fontSize)-2;
+}
+.thing__add{
+@include button(100%,25px,$colorGreen,$colorWhite);
+}
+.promotion__page{
+  padding-bottom: 20px;
+}
+.page__slide{
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  border: 1px solid #000;
+  font-size: 14px;
+  &:hover{
+    background: #000;
+  }
+}
+.page__slide_active{
+  background: #000
+}
+.sell-blog{
+  @include content($withGlobal);
+  background: darken($colorBack,1%);
+}
+.sell-blog__blog-content{
+  @include content;
+  padding:30px 0 30px 0;
+}
+.sell-unit__head{
+  @include head($fontSize+2,lighten($colorBrown,2%));
+}
+.blog-content__sell-unit{
+  @include blockItems(left,240px,350px,$colorWhite);/*naell heightin*/
+}
+.sell-unit__sell-figure{
+border:solid 3px darken($colorGreen,10%);
+}
+.blog__sign{
+  margin:0 20px 0 8px;
+}
+.sell-figure__describe{
+  border-top:solid 3px darken($colorGreen,10%); ;
+  text-align: center;
+  padding-top: 15px;
+}
+.describe__value{
+  text-decoration: line-through;
+  font-size: ($fontSize)-3;
+  padding-right: 30px;
+}
+.describe__discount-value{
+  color: darken($colorRed,10%);
+}
+.describe__time{
+  width: 100%;
+  height:35px;
+  background:rgba(255,255,255,0.7);
+  position: relative;
+  top:-170px;
+}
+.time__time-unit{
+  width: 21%;
+  margin-left:8px;
+  float: left;
+  color: darken($colorGreen,20%);
+}
+.time-unit__value{
+  font-size: ($fontSize)+10;
+
+}
+.time-unit__txt {
+  font-size: ($fontSize)-5;
+  position: relative;
+  top: -10px;
+}
+.sell-unit__buy{
+@include button(100%,40px,darken($colorGreen,10%),$colorWhite);
+  font-size: ($fontSize)+5;
+}
+.buy__sign{
+  margin: 0 30px 0 10px;
+}
+.buy__txt{
+  font-size: ($fontSize)+5;
+}
+.blog-content__blog{
+  @include blockItems(right,550px,383px,$color:$colorWhite);
+ background: darken($colorBack,1%);
+}
+.blog__head{
+  @include head;
+}
+.blog__user{
+  height: 63px;
+  margin-bottom: 20px;
+   border-bottom: 3px dotted #dddddd;
+ }
+.user__img{
+  float: left;
+}
+.user__commit{
+  float: left;
+  width: 70%;
+  padding: 0 20px 0 20px ;
+}
+.commit__content{
+  font-size: ($fontSize)-3;
+}
+.commit__head{
+  font-size: ($fontSize)-1;
+}
+.commit__more{
+  float: right;
+  margin-top:35px;
+@include button(50px,20px,$colorGreen,$colorWhite);
+  font-size: ($fontSize)+2;
+  &:hover{
+    background:$colorRed ;
+  }
+}
+.contact{
+  @include content($withGlobal);
+  padding: 30px 0 40px 0;
+}
+.contact__contact-content{
+  @include content;
+  font-size: ($fontSize)-3;
+}
+.contact-content__contact-block {
+@include blockItems(left,22%,220px,$colorWhite);
+}
+.contact-block__head{
+  @include head;
+}
+.contact-block__head-sign{
+margin: 0 15px;
+ color: $colorBrown;
+}
+.contact-block__txt_tell{
+  width: 80%;
+}
+.contact-block__txt{
+  font-size: ($fontSize)-3;
+  padding-bottom: 10px;
+  color:lighten($colorBrown,10%);
+}
+.contact-block__widget{
+margin-left: 4px;
+}
+.contact-block__widget_fb{
+  @include widget;
+  &:hover{
+    opacity: 0.4;
+  }
+}
+.contact-block__widget_tw{
+  @include widget($colorWhite,$colorBg: #0594be);
+  &:hover{
+    opacity: 0.4;
+  }
+}
+.contact-block__widget_goog{
+  @include widget($colorWhite,$colorBg: #d2d2d2);
+  &:hover{
+    opacity: 0.4;
+  }
+}
+.contact-block__widget_in{
+  @include widget($colorWhite,$colorBg: #2e8cbd);
+  &:hover{
+    opacity: 0.4;
+  }
+}
+.contact-block__widget_skype{
+  @include widget($colorWhite,$colorBg: #24bce6);
+  &:hover{
+    opacity: 0.4;
+  }
+}
+.footer{
+  @include content($withGlobal);
+  background: $colorBrown;
+  opacity: 0.9;
+
+  border-bottom: 2px solid $colorWhite;
+}
+.footer__footer-content{
+  @include content;
+  text-align: center;
+  height: 100px;
+  padding-top: 20px;
+  color: darken($colorBack,40%);
+}
+
+.footer-content__footer-menu{
+  margin-left: 28%;
+}
+.footer-menu__list{
+  @include list;
+}
+.head-right__link{
+@include link($padding:13px 20px)
+}
+.footer-content__copyright{
+  font-size: ($fontSize)-3;
+
+}
+/*
+
+@media screen and (max-width:1100px) {
+  .container{
+    @include content($withGlobal*80/100);
+    background: red;
+}
+  .header{
+    @include content($withGlobal*80/100);
+  }
+  .advertise{
+    @include content($withGlobal*80/100);
+  }
+};*/

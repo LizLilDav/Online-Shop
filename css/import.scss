@@ -1,17 +1,17 @@
 $colorBrown:#573c27;
 $colorRed:#e05b5b;
-$colorHeadBack:#f6eddc;
+$colorHeadBack:#FDEDDD;
 $colorGreen:#90b577;
-$colorBack:#fdfdfd;
+$colorBack: #fdfdfd;
 $colorWhite:#ffffff;
 $fontSize:14px;
 $heightHead: 42px;
 $withGlobal:1200px;
-$withContent:800px;
-@mixin content{
+$withContent:850px;
+@mixin content($width:$withContent){
   margin: 0 auto;
+  width:$width;
 }
-
 @mixin list{
   list-style: none;
 }
@@ -19,25 +19,56 @@ $withContent:800px;
   float: left;
   padding:$padding;
 }
-@mixin href($color:$colorWhite,$size:($fontSize)-5px){
+@mixin href($color:$colorWhite,$size:($fontSize)-5px,$colorHover:darken($colorHeadBack,20%),$backColor:$colorBrown){
   text-decoration: none;
   color:$color;
-  font-size:$size ;
+  font-size:$size;
   &:hover{
-    text-decoration:underline;
-    color:$colorHeadBack ;
+    color:$colorHover;
+    background:$backColor ;
   }
 }
-@mixin blockItems($float:left,$blockWidth:272px,$blockHeight:342px,$color:$colorWhite){
+@mixin blockItems($float:left,$blockWidth:190px,$blockHeight:253px,$color:$colorWhite){
   float: $float;
   width:$blockWidth;
   height:$blockHeight;
   background: $color;
-  margin-left:34px;
+  margin-right:20px;
 }
-@mixin button($buttonWith:15%,$buttonHeight:40px,$background:$colorRed,$color:$colorWhite){
+@mixin button($buttonWith:15%,$buttonHeight:40px,$background:$colorRed,$color:$colorWhite,$colorBg:$colorRed){
   width:$buttonWith;
   height:$buttonHeight;
-  background: $colorRed;
+  background: $background;
   color:$color;
+  outline: none;
+  border: none;
+  &:hover{
+    background: $colorBg;
+  }
+}
+@mixin head($font:$fontSize+3,$headColor:$colorBrown){
+  padding: 7px 0;
+  background: $colorHeadBack;
+  color: $headColor;
+  font-size: $font;
+  margin-bottom: 20px;
+  border: 1px solid #dddddd;
+}
+@mixin widget($color:$colorWhite,$colorBg: #3e5e9e){
+  width: 28px;
+  height: 28px;
+  border-radius: 5px;
+  text-align: center;
+  line-height: 30px;
+  color: #ffffff;
+  background: $colorBg;
+  float: left;
+}
+@mixin slider($color:$colorBack){
+  padding: 100px 25px 100px 0;
+  text-decoration: none;
+  color:$color;
+&:hover{
+  color:$colorRed;
+}
 }
